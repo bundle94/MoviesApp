@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="Enable message notifications"
+        app:summary="Get notified when we add a new movie"
+        android:icon="@drawable/ic_baseline_notifications_off_24" />
+    <SwitchPreferenceCompat
+        app:key="anonymous"
+        app:title="Make me Anonymous"
+        app:summary="Map your reviews to our anonymous user"
+        android:icon="@drawable/ic_baseline_person_24" />
+</PreferenceScreen>
