@@ -97,7 +97,7 @@ public class PopularFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Glide.with(context).load(selectedPoster).into(poster);
+                        Glide.with(context).load(selectedPoster.split("\\|")[1]).into(poster);
                         mDialog.dismiss();
                         for (int i = 0 ; i < response.length() ; i ++){
                             try {

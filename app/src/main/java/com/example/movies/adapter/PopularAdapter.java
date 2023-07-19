@@ -42,7 +42,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.MovieHol
         Movie movie = movieList.get(position);
         holder.rating.setText(movie.getRating().toString());
         holder.title.setText(movie.getTitle());
-        Glide.with(context).load(movie.getPoster()).into(holder.imageView);
+        Glide.with(context).load(movie.getPoster().split("\\|")[0]).into(holder.imageView);
 
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.MovieHol
                 Bundle bundle = new Bundle();
                 bundle.putString("title" , movie.getTitle());
                 bundle.putString("overview" , movie.getOverview());
-                bundle.putString("poster" , movie.getPoster());
+                bundle.putString("poster" , movie.getPoster().split("\\|")[1]);
                 bundle.putDouble("rating" , movie.getRating());
                 bundle.putInt("id", movie.getId());
                 bundle.putString("genre", movie.getGenre());

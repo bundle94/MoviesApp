@@ -1,9 +1,12 @@
 package com.example.movies.adapter;
 
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +52,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         holder.rating.setText(movie.getRating().toString());
         holder.title.setText(movie.getTitle());
         holder.overview.setText(movie.getOverview());
-        Glide.with(context).load(movie.getPoster()).into(holder.imageView);
+        Glide.with(context).load(movie.getPoster().split("\\|")[0]).into(holder.imageView);
 
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +62,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 Bundle bundle = new Bundle();
                 bundle.putString("title" , movie.getTitle());
                 bundle.putString("overview" , movie.getOverview());
-                bundle.putString("poster" , movie.getPoster());
+                bundle.putString("poster" , movie.getPoster().split("\\|")[1]);
                 bundle.putDouble("rating" , movie.getRating());
                 bundle.putInt("id", movie.getId());
                 bundle.putString("genre", movie.getGenre());
